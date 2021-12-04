@@ -1,11 +1,11 @@
 using Pipe
 
-mutable struct Position
+mutable struct PositionA
     depth::Int
     horizontal::Int
 end
 
-mutable struct PositionTwo
+mutable struct PositionB
     aim::Int
     depth::Int
     horizontal::Int
@@ -18,7 +18,7 @@ function read_input_02()
     return strs
 end
 
-function process_command(position::Position, command::String)
+function process_command(position::PositionA, command::String)
     (first, second) = split(command, " ")
     num = parse(Int, second)
     if first == "forward"
@@ -30,7 +30,7 @@ function process_command(position::Position, command::String)
     end
 end
 
-function process_command(position::PositionTwo, command::String)
+function process_command(position::PositionB, command::String)
     (first, second) = split(command, " ")
     num = parse(Int, second)
     if first == "forward"
@@ -45,7 +45,7 @@ end
 
 function day_02_a()
     cmds = read_input_02()
-    pos = Position(0, 0)
+    pos = PositionA(0, 0)
     for command in cmds
         process_command(pos, command)
     end
@@ -55,7 +55,7 @@ end
 
 function day_02_b()
     cmds = read_input_02()
-    pos = PositionTwo(0, 0, 0)
+    pos = PositionB(0, 0, 0)
     for command in cmds
         process_command(pos, command)
     end
