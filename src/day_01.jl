@@ -1,7 +1,7 @@
 using Pipe
 
 function readinput()
-    strs = open("input.txt", "r") do f
+    strs = open("input1.txt", "r") do f
         readlines(f)
     end
     lines = map(x -> parse(Int, x), filter(x -> x != "", strs))
